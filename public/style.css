@@ -1,0 +1,277 @@
+
+:root{
+    --mainColor : gold;
+    --on : gold;
+    --off: black;
+}
+
+@keyframes red
+{
+    0%      {background:var(--off); color: white;}
+    1%     {background:white; color: var(--off);}
+    75%     {background:white; color: var(--off);}
+    100%    {background:white; color: var(--off);}
+}
+
+@keyframes green
+{
+    0%      {background:var(--on); color: white;}
+    1%     {background:white; color: var(--on);}
+    75%     {background:white; color: var(--on);}
+    100%    {background:white; color: var(--on);}
+}
+
+html, body{
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+ /*CONTENEDER DEL LA PATA*/
+    .paw {
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    /*LA PATA EN SÍ*/
+    .singlePaw {
+        width: 90%;
+        display: block;
+        text-align: center;
+        font-size: 1.7rem;
+        color: var(--mainColor);
+        background-color: #ffffff;
+        padding: 0 1rem;
+        z-index: 1;
+    }
+
+    /*FONDO DE LA PATA*/
+    .double {
+        background-color: #ffffff;
+        padding: 0 20px;
+        font-family: "Roboto", sans-serif;
+        text-align: center;
+        margin: 5px;
+    }
+
+    /*BARRA DETRÁS DE LA PATA*/
+    .double:after {
+        border-bottom: 4px solid var(--mainColor);
+        -webkit-box-shadow: 0 1px 0 0 var(--mainColor);
+        -moz-box-shadow: 0 1px 0 0 var(--mainColor);
+        box-shadow: 0 1px 0 0 var(--mainColor);
+        content: "";
+        margin: 0 auto; /* this centers the line to the full width specified */
+        position: absolute;
+        top: 48%;
+        left: 0;
+        right: 0;
+        width: 90%;
+        z-index: -1;
+    }
+
+    .botones{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        font-family: "Roboto", sans-serif;
+        font-weight: bolder;
+        color: black;
+    }
+
+    .button{
+        border-radius: 5px;
+        font-weight: bold;
+        margin: 5px;
+        padding: 6px;
+        width: 100px;
+    }
+
+    .button1, .button3{
+        background-color: white;
+        color: var(--on);
+        border: solid 2px var(--on);
+    }
+
+    .button2{
+        background-color: white;
+        color: var(--off);
+        border: solid 2px var(--off);
+    }
+
+    .button1:hover, .button3:hover{
+        color: white;
+        border-color: var(--on);
+        background-color: var(--on);
+    }
+
+    .button2:hover{
+        color: white;
+        border-color: var(--off);
+        background-color: var(--off);
+    }
+
+
+    .button1:focus, .button3:focus{
+       animation: green 20s 1;
+    }
+
+    .button2:focus{
+       animation: red 20s 1;
+    }
+
+    .fila{
+
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        justify-content: space-around;
+    }
+
+    .grupoBotones{
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
+    }
+
+    .linea{
+        margin: 0;
+    }
+
+    .linea1{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+
+    .linea2 p{
+        display: flex;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 250px;
+        margin: 0 auto;
+    }
+
+
+
+
+    .label{
+        width: 70%;
+        padding: 5px;
+        height: 20px;
+        font-family: "Roboto", sans-serif;
+        font-weight: bold;
+        border-radius: 5px;
+
+    }
+
+
+    .form__input{
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 70vw;
+      height: 5px;
+      border: 1px solid black;
+      border-radius: .5rem;
+      outline: none;
+      padding: 1rem;
+      background: none;
+      z-index: 1;
+        margin: 10px;
+    }
+    .form__label{
+      position: relative;
+      left: -850px;
+      top: 0;
+      padding: 0 .25rem;
+      background-color: #fff;
+      color: black;
+      font-size: 15px;
+      transition: .3s;
+    }
+
+    /*Input focus move up label*/
+.form__input:focus + .form__label{
+  top: -20px;
+  left: -850px;
+  color: black;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 10;
+}
+
+/*Input focus sticky top label*/
+.form__input:not(:placeholder-shown).form__input:not(:focus)+ .form__label{
+  top: -.5rem;
+  left: .8rem;
+  font-size: 15px;
+  font-weight: 500;
+  z-index: 10;
+}
+
+/*Input focus*/
+.form__input:focus{
+  border: 1.5px solid black;
+}
+
+.button3{
+    width: 200px;
+    margin-left: -70px;
+    height: 40px;
+
+}
+
+.estatus{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: 15px;
+    border: solid 2px black;
+    border-radius: 20px;
+}
+
+.lineaS{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+
+}
+
+.leds{
+    background-color: var(--mainColor);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    padding: 6px;
+    margin: 5px;
+    width: 100px;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+
+.elementos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 4px 0;
+}
+
+.tag{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 200px;
+    text-align: center;
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
