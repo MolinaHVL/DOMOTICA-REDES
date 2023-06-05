@@ -1,103 +1,16 @@
 :root {
-    --mainColor: gold;
-    --on: gold;
+    --mainColor: purple;
+    --on: purple;
     --off: black;
 }
 
-@keyframes red {
-    0% {
-        background: var(--off);
-        color: white;
-    }
 
-    1% {
-        background: white;
-        color: var(--off);
-    }
-
-    75% {
-        background: white;
-        color: var(--off);
-    }
-
-    100% {
-        background: white;
-        color: var(--off);
-    }
-}
-
-@keyframes green {
-    0% {
-        background: var(--on);
-        color: white;
-    }
-
-    1% {
-        background: white;
-        color: var(--on);
-    }
-
-    75% {
-        background: white;
-        color: var(--on);
-    }
-
-    100% {
-        background: white;
-        color: var(--on);
-    }
-}
-
-html,
-body {
-    overflow-x: hidden;
-    max-width: 100%;
-}
-
-/*CONTENEDER DEL LA PATA*/
 .paw {
     display: flex;
     justify-content: center;
     position: relative;
 }
 
-/*LA PATA EN SÍ*/
-.singlePaw {
-    width: 90%;
-    display: block;
-    text-align: center;
-    font-size: 1.7rem;
-    color: var(--mainColor);
-    background-color: #ffffff;
-    padding: 0 1rem;
-    z-index: 1;
-}
-
-/*FONDO DE LA PATA*/
-.double {
-    background-color: #ffffff;
-    padding: 0 20px;
-    font-family: "Roboto", sans-serif;
-    text-align: center;
-    margin: 5px;
-}
-
-/*BARRA DETRÁS DE LA PATA*/
-.double:after {
-    border-bottom: 4px solid var(--mainColor);
-    -webkit-box-shadow: 0 1px 0 0 var(--mainColor);
-    -moz-box-shadow: 0 1px 0 0 var(--mainColor);
-    box-shadow: 0 1px 0 0 var(--mainColor);
-    content: "";
-    margin: 0 auto;
-    /* this centers the line to the full width specified */
-    position: absolute;
-    top: 48%;
-    left: 0;
-    right: 0;
-    width: 90%;
-    z-index: -1;
-}
 
 .botones {
     width: 100%;
@@ -201,57 +114,6 @@ body {
 
 }
 
-
-.form__input {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 70vw;
-    height: 5px;
-    border: 1px solid black;
-    border-radius: .5rem;
-    outline: none;
-    padding: 1rem;
-    background: none;
-    z-index: 1;
-    margin: 10px;
-}
-
-.form__label {
-    position: relative;
-    left: -850px;
-    top: 0;
-    padding: 0 .25rem;
-    background-color: #fff;
-    color: black;
-    font-size: 15px;
-    transition: .3s;
-}
-
-/*Input focus move up label*/
-.form__input:focus+.form__label {
-    top: -20px;
-    left: -850px;
-    color: black;
-    font-size: 13px;
-    font-weight: 500;
-    z-index: 10;
-}
-
-/*Input focus sticky top label*/
-.form__input:not(:placeholder-shown).form__input:not(:focus)+.form__label {
-    top: -.5rem;
-    left: .8rem;
-    font-size: 15px;
-    font-weight: 500;
-    z-index: 10;
-}
-
-/*Input focus*/
-.form__input:focus {
-    border: 1.5px solid black;
-}
-
 .button3 {
     width: 200px;
     margin-left: -70px;
@@ -259,14 +121,6 @@ body {
 
 }
 
-.estatus {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    margin: 15px;
-    border: solid 2px black;
-    border-radius: 20px;
-}
 
 .lineaS {
     display: flex;
@@ -276,35 +130,21 @@ body {
 
 }
 
-.leds {
-    background-color: var(--mainColor);
-    border-radius: 5px;
+html body {
+    background: linear-gradient(to bottom, purple, rgb(98, 98, 232));
+    height: 100vh;
+    margin: 0;
     display: flex;
     justify-content: center;
-    padding: 6px;
-    margin: 5px;
-    width: 100px;
-    color: white;
-    font-family: "Roboto", sans-serif;
-    font-weight: bold;
-}
-
-.elementos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
     align-items: center;
-    padding: 4px 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-.tag {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    width: 200px;
-    text-align: center;
-    color: black;
-    font-family: "Roboto", sans-serif;
-    font-weight: bold;
+.card {
+    padding: 20px;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding-top: 20px;
 }

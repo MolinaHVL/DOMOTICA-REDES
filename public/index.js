@@ -28,10 +28,12 @@ function encender_celda() {
 function apagar_celda() {
     socket.emit("comando_html_python", "CELL OFF");
 }
-//KITCHEN
-function encender_luces_cocina() {
-    socket.emit("comando_html_python", "KITCHEN LIGHTS ON");
+
+function modo_manual() {
+    socket.emit("comando_html_python", "MANUAL");
 }
-function apagar_luces_cocina() {
-    socket.emit("comando_html_python", "KITCHEN LIGHTS OFF");
+
+function autoFunction() {
+    var textFieldValue = document.getElementById('textField').value;
+    socket.emit("comando_html_python", "AUTO" + textFieldValue);
 }

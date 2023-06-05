@@ -14,65 +14,79 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
 </head>
 
 <body>
-    <div class='titulo' id="titulo">
-        <div class="paw">
-            <h2>SMART HOME MONITORING AND CONTROL INTERFACE</h2>
+    <div class="card">
+        <div class="card-content">
+            <div class='titulo' id="titulo">
+                <div class="paw">
+                    <h3>IoT Temperature Wifi Controller</h3>
+                </div>
+            </div>
+
+
+            <div class="botones">
+
+                <div class="fila">
+                    <div class="grupoBotones">
+                        <div class="linea linea1">
+                            <input type="button" class="button button1" value="ON" onclick="encender_luces_cuarto()">
+                            <input type="button" class="button button2" value="OFF" onclick="apagar_luces_cuarto()">
+                        </div>
+                        <div class="linea linea1">
+                            <p>Indoor &nbsp<b>Lights</b></p>
+                        </div>
+
+                    </div>
+                    <!-- LIVING ROOM -->
+                    <div class="grupoBotones">
+                        <div class="linea linea1">
+                            <input type="button" class="button button1" value="ON" onclick="encender_luces_sala()">
+                            <input type="button" class="button button2" value="OFF" onclick="apagar_luces_sala()">
+                        </div>
+                        <div class="linea linea1">
+                            <p>Outdoor &nbsp<b>Lights</b></p>
+                        </div>
+
+                    </div>
+                    <!-- GARAGE -->
+                    <div class="grupoBotones">
+                        <div class="linea linea1">
+                            <input type="button" class="button button1" value="ON" onclick="encender_ventilador()">
+                            <input type="button" class="button button2" value="OFF" onclick="apagar_ventilador()">
+                        </div>
+                        <div class="linea linea1">
+                            <p>Fan Controller</p>
+                        </div>
+
+                    </div>
+                    <!-- RESTROOM -->
+                    <div class="grupoBotones">
+                        <div class="linea linea1">
+                            <input type="button" class="button button1" value="ON" onclick="encender_celda()">
+                            <input type="button" class="button button2" value="OFF" onclick="apagar_celda()">
+                        </div>
+                        <div class="linea linea1">
+                            <p>Heater Controller</p>
+                        </div>
+
+                    </div>
+
+                    <div class="grupoBotones">
+                        <div class="linea linea1">
+                            <input type="text" id="textField" placeholder="Enter a value...">
+                            <button class="button" onclick="autoFunction()">AUTO</button>
+                            <input type="button" class="button button1" value="MANUAL" onclick="modo_manual()">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-    </div>
-
-
-    <div class="botones">
-
-        <div class="fila">
-            <div class="grupoBotones">
-                <div class="linea linea1">
-                    <input type="button" class="button button1" value="ON" onclick="encender_luces_cuarto()">
-                    <input type="button" class="button button2" value="OFF" onclick="apagar_luces_cuarto()">
-                </div>
-                <div class="linea linea2">
-                    <p>Iluminacion &nbsp<b>Interior</b></p>
-                </div>
-
-            </div>
-            <!-- LIVING ROOM -->
-            <div class="grupoBotones">
-                <div class="linea linea1">
-                    <input type="button" class="button button1" value="ON" onclick="encender_luces_sala()">
-                    <input type="button" class="button button2" value="OFF" onclick="apagar_luces_sala()">
-                </div>
-                <div class="linea linea2">
-                    <p>Iluminacion &nbsp<b>Exterior</b></p>
-                </div>
-
-            </div>
-            <!-- GARAGE -->
-            <div class="grupoBotones">
-                <div class="linea linea1">
-                    <input type="button" class="button button1" value="ON" onclick="encender_ventilador()">
-                    <input type="button" class="button button2" value="OFF" onclick="apagar_ventilador()">
-                </div>
-                <div class="linea linea2">
-                    <p>Ventilador</p>
-                </div>
-
-            </div>
-            <!-- RESTROOM -->
-            <div class="grupoBotones">
-                <div class="linea linea1">
-                    <input type="button" class="button button1" value="ON" onclick="encender_celda()">
-                    <input type="button" class="button button2" value="OFF" onclick="apagar_celda()">
-                </div>
-                <div class="linea linea2">
-                    <p>Calentador</p>
-                </div>
-
-            </div>
-
-        </div>
-
     </div>
 </body>
 
