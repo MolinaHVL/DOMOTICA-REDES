@@ -2,17 +2,17 @@ var socket = io.connect('https://domotica-back.onrender.com', { 'forceNew': true
 var explodedValues = [4];
 //ROOM
 function encender_luces_cuarto() {
-    socket.emit("comando_html_python", "ROOM LIGHTS ON");
+    socket.emit("comando_html_python", "INDOOR LIGHTS ON");
 }
 function apagar_luces_cuarto() {
-    socket.emit("comando_html_python", "ROOM LIGHTS OFF");
+    socket.emit("comando_html_python", "INDOOR LIGHTS OFF");
 }
 //LIVINGROOM
 function encender_luces_sala() {
-    socket.emit("comando_html_python", "LIVINGROOM LIGHTS ON");
+    socket.emit("comando_html_python", "OUTDOOR LIGHTS ON");
 }
 function apagar_luces_sala() {
-    socket.emit("comando_html_python", "LIVINGROOM LIGHTS OFF");
+    socket.emit("comando_html_python", "OUTDOOR LIGHTS OFF");
 }
 //GARAGE
 function encender_luces_garage() {

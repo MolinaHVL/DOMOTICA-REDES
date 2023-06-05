@@ -4,368 +4,76 @@
 
 <html>
 
-    <head>
-        <title>SMART HOME</title>
-        <link rel="icon" href="CETYS.png">
-        <script type="text/javascript" src="socket.io/socket.io.js"></script>
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <script type="text/javascript" src="index.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    </head>
+<head>
+    <title>SMART HOME</title>
+    <link rel="icon" href="CETYS.png">
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
 
-    <body>
-        <div class = 'titulo' id="titulo">
-            <div class="paw">
-                <h2 class="background double">SMART HOME MONITORING AND CONTROL INTERFACE</h2>
+<body>
+    <div class='titulo' id="titulo">
+        <div class="paw">
+            <h2>SMART HOME MONITORING AND CONTROL INTERFACE</h2>
+        </div>
+    </div>
+
+
+    <div class="botones">
+
+        <div class="fila">
+            <div class="grupoBotones">
+                <div class="linea linea1">
+                    <input type="button" class="button button1" value="ON" onclick="encender_luces_cuarto()">
+                    <input type="button" class="button button2" value="OFF" onclick="apagar_luces_cuarto()">
+                </div>
+                <div class="linea linea2">
+                    <p>Iluminacion &nbsp<b>Interior</b></p>
+                </div>
+
             </div>
+            <!-- LIVING ROOM -->
+            <div class="grupoBotones">
+                <div class="linea linea1">
+                    <input type="button" class="button button1" value="ON" onclick="encender_luces_sala()">
+                    <input type="button" class="button button2" value="OFF" onclick="apagar_luces_sala()">
+                </div>
+                <div class="linea linea2">
+                    <p>Iluminacion &nbsp<b>Exterior</b></p>
+                </div>
+
+            </div>
+            <!-- GARAGE -->
+            <div class="grupoBotones">
+                <div class="linea linea1">
+                    <input type="button" class="button button1" value="ON" onclick="encender_luces_garage()">
+                    <input type="button" class="button button2" value="OFF" onclick="apagar_luces_garage()">
+                </div>
+                <div class="linea linea2">
+                    <p>Ventilador</p>
+                </div>
+
+            </div>
+            <!-- RESTROOM -->
+            <div class="grupoBotones">
+                <div class="linea linea1">
+                    <input type="button" class="button button1" value="ON" onclick="encender_luces_restroom()">
+                    <input type="button" class="button button2" value="OFF" onclick="apagar_luces_restroom()">
+                </div>
+                <div class="linea linea2">
+                    <p>Calentador</p>
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="estatus">
-            <div class="lineaS">
-                <div class="elementos">
-                    <div class = 'leds' id="room">OFF</div>
-                    <div class="tag">LUCES CUARTO</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="livingroom">OFF</div>
-                    <div class="tag">LUCES SALA</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="garage">OFF</div>
-                    <div class="tag">LUCES GARAGE</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="restroom">OFF</div>
-                    <div class="tag">LUCES BAÑO</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="kitchen">OFF</div>
-                    <div class="tag">LUCES COCINA</div>
-                </div>
-            </div>
-            <div class="lineaS">
-                <div class="elementos">
-                    <div class = 'leds' id="laundry">OFF</div>
-                    <div class="tag">LUCES CUARTO LAVADO</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="outside">OFF</div>
-                    <div class="tag">LUCES PATIO</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="hall">OFF</div>
-                    <div class="tag">LUCES PASILLO</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="lobby">OFF</div>
-                    <div class="tag">LUCES LOBBY</div>
-                </div>
-
-
-            </div>
-            <div class="lineaS">
-                <div class="elementos">
-                    <div class = 'leds' id="washer">OFF</div>
-                    <div class="tag">LAVADORA</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="dryer">OFF</div>
-                    <div class="tag">SECADORA</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="shower">OFF</div>
-                    <div class="tag">REGADERA</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="sprinklers">OFF</div>
-                    <div class="tag">SPRINKLERS</div>
-                </div>
-
-            </div>
-            <div class="lineaS">
-                <div class="elementos">
-                    <div class = 'leds' id="estatus_fuego">NO FIRE</div>
-                    <div class="tag">SENSOR DE FLAMA</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="estatus_alarma">INACTIVE</div>
-                    <div class="tag">SISTEMA DE ALARMA</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="estatus_toilet">WAITING</div>
-                    <div class="tag">RETRETE</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="estatus_garage">CLOSED</div>
-                    <div class="tag">PUERTA GARAGE</div>
-                </div>
-                <div class="elementos">
-                    <div class = 'leds' id="estatus_pir">OFF</div>
-                    <div class="tag">SENSOR MOVIMIENTO</div>
-                </div>
-            </div>
-        </div>
-        <div class="botones">
-
-                    <div class="fila">
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_luces_cuarto()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_luces_cuarto()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>LUCES&nbsp<b>CUARTO</b></p>
-                            </div>
-
-                        </div>
-                        <!-- LIVING ROOM -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_luces_sala()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_luces_sala()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>LUCES &nbsp<b>SALA</b></p>
-                            </div>
-
-                        </div>
-                        <!-- GARAGE -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_luces_garage()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_luces_garage()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>LUCES GARAGE</p>
-                            </div>
-
-                        </div>
-                        <!-- RESTROOM -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_luces_restroom()">
-                            <input type="button" class="button button2" value="OFF" onclick="apagar_luces_restroom()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>LUCES BAÑO</p>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="fila">
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_luces_laundry()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_luces_laundry()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>LUCES CUARTO LAVADO</p>
-                            </div>
-
-                        </div>
-                        <!-- OUTSIDE -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_luces_outside()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_luces_outside()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>LUCES PATIO</p>
-                            </div>
-
-                        </div>
-                        <!-- HALL -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_luces_pasillo()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_luces_pasillo()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>LUCES PASILLO</p>
-                            </div>
-
-                        </div>
-                        <!-- LOBBY -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_luces_lobby()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_luces_lobby()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>LUCES LOBBY</p>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                    <div class="fila">
-                        <!-- KITCHEN -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_luces_cocina()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_luces_cocina()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>LUCES COCINA</p>
-                            </div>
-
-                        </div>
-                        <!-- ALL LIGHTS -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_todo()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_todo()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>TODAS LAS LUCES</p>
-                            </div>
-
-                        </div>
-                        <!-- RIGHT SIDE -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_derecha()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_derecha()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>LADO DERECHO</p>
-                            </div>
-
-                        </div>
-                        <!-- LEFT SIDE -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_izquierda()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_izquierda()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>LADO IZQUIERDO</p>
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="fila">
-                        <!-- SHOWER -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_shower()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_shower()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>REGADERA</p>
-                            </div>
-
-                        </div>
-                        <!-- WASHER -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_lavadora()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_lavadora()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>LAVADORA</p>
-                            </div>
-
-                        </div>
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_secadora()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_secadora()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>SECADORA</p>
-                            </div>
-
-                        </div>
-
-                        <!-- SPRINKLERS -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_sprinklers()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_sprinklers()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>SPRINKLERS</p>
-                            </div>
-
-                        </div>
-                        <!-- SPECIAL FUNCTIONS -->
-                        <!-- PREPARE SHOWER -->
-
-
-
-
-                    </div>
-                    <div class="fila">
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_shower_time()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_shower_time()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>SHOWER TIME!</p>
-                            </div>
-
-                        </div>
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_noche()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_noche()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>MODO NOCTURNO</p>
-                            </div>
-
-                        </div>
-                         <!-- PREPARE FOR GUESTS -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_visitas()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_visitas()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>MODO VISITAS</p>
-                            </div>
-
-                        </div>
-                        <!-- TODO -->
-                        <div class="grupoBotones">
-                            <div class="linea linea1">
-                                <input type="button" class="button button1" value="ON" onclick="encender_everything()">
-                                <input type="button" class="button button2" value="OFF" onclick="apagar_everything()">
-                            </div>
-                            <div class="linea linea2">
-                                <p>ENCENDER TODO</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- ROOM -->
-
-                    <!-- LAUNDRY -->
-
-                    <!-- DRYER -->
-
-                    <!-- NIGHT MODE -->
-
-                    <div class="grupoBotones">
-                        <div class="linea1 form__div">
-                            <input class = 'form__input label' type="text" id="mensaje_manual" placeholder=" ">
-                            <label for="mensaje_manual" class="form__label">COMANDO</label>
-                            <input type="button" class="button button3" value="ENVIAR COMANDO" onclick="enviar_comando()">
-                        </div>
-                        <div class="linea1">
-
-                        </div>
-                    </div>
-                </div>
-    </body>
+    </div>
+</body>
 
 </html>

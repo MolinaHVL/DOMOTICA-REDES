@@ -11,28 +11,7 @@ io.on('connection', function (socket) {
         console.log(data);
         io.sockets.emit('comando_python_arduino', data);
     });
-    socket.on('sprinklers_status', function (data) {
-        console.log('SPRINKLERS: ' + data);
-        io.sockets.emit('sprinklers', data);
-    });
 
-    socket.on("message", (data) => {
-        console.log("Received message:", data);
-        // Broadcast the message to all connected clients
-        io.emit("message", data);
-    });
-
-    socket.on("temperature", (data) => {
-        console.log("Received temperature:", data);
-        // Broadcast the message to all connected clients
-        io.emit("temperature", data);
-    });
-
-    socket.on("indoorLights", (data) => {
-        console.log("Lights Changed:", data);
-        // Broadcast the message to all connected clients
-        io.emit("indoorLights", data);
-    });
 });
 
 

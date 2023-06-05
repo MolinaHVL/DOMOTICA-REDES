@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server/index.js",
+    "dev": "nodemon server/server.js",
     "deploy": "gh-pages -d public"
   },
   "keywords": [],
