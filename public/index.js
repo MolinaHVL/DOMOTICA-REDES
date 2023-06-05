@@ -1,4 +1,4 @@
-var socket = io.connect('192.168.0.107:5001', { 'forceNew': true });
+var socket = io.connect('https://domotica-back.onrender.com', { 'forceNew': true });
 var explodedValues = [4];
 //ROOM
 function encender_luces_cuarto() {

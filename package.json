@@ -1,22 +1,20 @@
 {
   "name": "server_smart_home",
   "version": "1.0.0",
+  "homepage": "https://github.com/MolinaHVL/DOMOTICA-REDES/index.html",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.js",
+    "deploy": "gh-pages -d public"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
+    "gh-pages": "^5.0.0",
     "nodemon": "^2.0.16",
     "socket.io": "^1.7.2"
   }
 }
-
-
-
-
-
